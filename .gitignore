@@ -1,0 +1,4 @@
+/pastee/settings.py
+.idea
+db.sqlite3
+*.pyc
