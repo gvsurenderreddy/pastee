@@ -1,5 +1,4 @@
 from django.db import models
-import string, random
 
 
 class Paste(models.Model):

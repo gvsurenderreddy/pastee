@@ -6,4 +6,3 @@ def write_file(content, name):
 
     with open(path + name, 'w+') as f:
         f.write(content)
-

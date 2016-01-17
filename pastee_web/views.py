@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.utils import timezone
 
 from .models import Paste
@@ -45,4 +45,3 @@ def view_paste(request, paste_name):
         paste = f.read()
 
     return render(request, 'detail.html', {'paste': paste})
-
