@@ -3,6 +3,7 @@ from django.utils import timezone
 
 from .models import Paste
 from .forms import PasteForm
+from .helpers import *
 
 import random
 import string
@@ -23,7 +24,8 @@ def add_paste(request):
 
             paste.paste_name = rand_name
             paste.created_at = timezone.now()
-            paste.paste_text = form.cleaned_data['paste_text']
+
+            write_file(form.cleaned_data['paste_text'], rand_name)
 
             paste.save()
 
@@ -37,8 +39,12 @@ def add_paste(request):
 
 
 def view_paste(request, paste_name):
-    requested_paste = get_object_or_404(Paste, paste_name=paste_name)
-    return render(request, 'detail.html', {'paste': requested_paste})
+    path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/pastee_web/pastes/'
+
+    with open(path + paste_name) as f:
+        paste = f.read()
+
+    return render(request, 'detail.html', {'paste': paste})
 
 
 def added_paste(request, name):

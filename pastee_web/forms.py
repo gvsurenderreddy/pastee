@@ -1,15 +1,6 @@
 from django import forms
-from django.utils import timezone
-from .models import Paste
-import random
-import string
 
 
-class PasteForm(forms.ModelForm):
+class PasteForm(forms.Form):
 
-    paste_text = forms.Textarea
-
-    class Meta:
-        model = Paste
-
-        fields = ('paste_text',)
+    paste_text = forms.CharField(label='Content', widget=forms.Textarea)
