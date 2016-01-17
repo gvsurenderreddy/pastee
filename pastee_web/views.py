@@ -29,7 +29,7 @@ def add_paste(request):
 
             paste.save()
 
-            return added_paste(request, paste.paste_name)
+            return render(request, 'index.html', {'paste_name': paste.paste_name})
         else:
             print(form.errors)
     else:
@@ -46,6 +46,3 @@ def view_paste(request, paste_name):
 
     return render(request, 'detail.html', {'paste': paste})
 
-
-def added_paste(request, name):
-    return render(request, 'index.html', {'paste_name': name})
