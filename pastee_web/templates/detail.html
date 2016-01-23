@@ -1,3 +1,9 @@
-<pre>
-    {{ paste }}
-</pre>
+{% extends 'base.html' %}
+
+{% block body %}
+    <pre>
+        {{ paste }}
+    </pre>
+
+    <a href="/">Go home</a>
+{% endblock %}

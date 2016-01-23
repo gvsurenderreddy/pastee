@@ -1,6 +1,10 @@
-{% if paste_name %}
-<p>Paste added. Name: {{ paste_name }}</p>
-<a href="/paste/view/{{ paste_name }}">View paste</a>
-{% else %}
-<a href="/paste/add">Add new paste</a>
-{% endif %}
+{% extends 'base.html' %}
+
+{% block body %}
+    {% if paste_name %}
+        <p>Paste added. Name: {{ paste_name }}</p>
+        <a href="/paste/view/{{ paste_name }}">View paste</a>
+    {% else %}
+        <a href="/paste/add">Add new paste</a>
+    {% endif %}
+{% endblock %}

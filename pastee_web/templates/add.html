@@ -1,8 +1,13 @@
-<form id="category_form" method="post" action="/paste/add/">
+{% extends 'base.html' %}
 
-    {% csrf_token %}
+{% block body %}
+    <form id="category_form" method="post" action="/paste/add/">
 
-    {{ form }}
+        {% csrf_token %}
 
-    <input type="submit" name="submit" value="Add Paste" />
-</form>
+        {{ form }}
+
+        <input type="submit" name="submit" value="Add Paste" />
+
+    </form>
+{% endblock %}
