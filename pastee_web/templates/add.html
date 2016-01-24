@@ -1,13 +1,22 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <form id="category_form" method="post" action="/paste/add/">
+{% load filters %}
+    <div class="mdl-grid center">
+        <form id="category_form" method="post" action="/paste/add/">
 
-        {% csrf_token %}
+            {% csrf_token %}
 
-        {{ form }}
+            <div class="mdl-textfield mdl-js-textfield">
+                {{ form.paste_text|addclass:'mdl-textfield__input' }}
+                <label class="mdl-textfield__label" for="id_paste_text">Paste goes here</label>
+            </div>
 
-        <input type="submit" name="submit" value="Add Paste" />
-
-    </form>
+            <div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Add paste
+                </button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

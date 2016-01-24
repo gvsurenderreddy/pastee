@@ -1,16 +1,60 @@
 <!doctype html>
 {% load static %}
+{% load filters %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Pastes</title>
     <link rel="stylesheet" href="{% static 'css/material.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Droid+Sans+Mono'>
 </head>
 <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <a class="mdl-navigation__link" href="/">
+                    <span class="mdl-layout-title">
+                        Pastes
+                    </span>
+                </a>
 
-    {% block body %}
+                <div class="mdl-layout-spacer"></div>
 
-    {% endblock %}
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                    <a class="mdl-navigation__link" href="">Link</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="mdl-layout__drawer">
+            <a class="mdl-navigation__link" href="/">
+                <span class="mdl-layout-title">
+                    Pastes
+                </span>
+            </a>
+
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+                <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+        </div>
+
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                {% block body %}
+
+                {% endblock %}
+            </div>
+        </main>
+    </div>
 
     <script src="{% static 'js/material.min.js' %}"></script>
 </body>

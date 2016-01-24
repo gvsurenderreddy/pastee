@@ -1,0 +1,16 @@
+.center{
+    max-width: 960px;
+}
+
+.center div{
+    width: 960px;
+}
+
+.paste_add textarea, .paste-detail{
+    font-family: "Droid Sans Mono", "Helvetica", "Arial", sans-serif;
+    font-size: 14px;
+}
+
+.paste-detail{
+    padding: 50px 0;
+}

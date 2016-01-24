@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 
 {% block body %}
-    <pre>
-        {{ paste }}
-    </pre>
+    <div class="mdl-grid center">
+        <div>
+            <div class="paste-detail">
+                {{ paste }}
+            </div>
 
-    <a href="/">Go home</a>
+            <a href="/">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">
+                    Go home
+                </button>
+            </a>
+        </div>
+    </div>
 {% endblock %}
