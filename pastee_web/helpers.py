@@ -1,5 +1,10 @@
 import os
+
 from .models import Language
+
+from pygments import highlight
+from pygments.lexers import guess_lexer
+from pygments.formatters import get_formatter_by_name
 
 
 def write_file(content, name):
@@ -17,3 +22,14 @@ def prettyoutput():
         return_value.append([language.identifier, language.name])
 
     return tuple(return_value)
+
+
+def highlightpaste(path, paste_name):
+
+    with open(path + paste_name) as f:
+        paste_content = f.read()
+
+    lexer = guess_lexer(paste_content)
+    formatter = get_formatter_by_name('html')
+
+    return highlight(paste_content, lexer, formatter)

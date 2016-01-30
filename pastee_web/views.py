@@ -41,7 +41,6 @@ def add_paste(request):
 def view_paste(request, paste_name):
     path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/pastee_web/pastes/'
 
-    with open(path + paste_name) as f:
-        paste = f.read()
+    paste = highlightpaste(path, paste_name)
 
     return render(request, 'detail.html', {'paste': paste})
