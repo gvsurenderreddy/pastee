@@ -24,11 +24,11 @@ def add_paste(request):
 
             paste.paste_name = rand_name
             paste.created_at = timezone.now()
+            paste.language = Language.objects.get(identifier=form.cleaned_data['paste_language'])
 
             write_file(form.cleaned_data['paste_text'], rand_name)
 
             paste.save()
-
             return render(request, 'index.html', {'paste_name': paste.paste_name})
         else:
             print(form.errors)

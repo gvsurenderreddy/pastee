@@ -1,4 +1,5 @@
 import os
+from .models import Language
 
 
 def write_file(content, name):
@@ -6,3 +7,13 @@ def write_file(content, name):
 
     with open(path + name, 'w+') as f:
         f.write(content)
+
+
+def prettyoutput():
+    available_languages = Language.objects.all()
+    return_value = []
+
+    for language in available_languages:
+        return_value.append([language.identifier, language.name])
+
+    return tuple(return_value)
