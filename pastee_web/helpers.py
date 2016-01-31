@@ -1,9 +1,12 @@
 import os
 
+from pygments.util import ClassNotFound
+
 from .models import Language
+from .models import Paste
 
 from pygments import highlight
-from pygments.lexers import guess_lexer
+from pygments.lexers import guess_lexer, get_lexer_by_name
 from pygments.formatters import get_formatter_by_name
 
 
@@ -29,7 +32,13 @@ def highlightpaste(path, paste_name):
     with open(path + paste_name) as f:
         paste_content = f.read()
 
-    lexer = guess_lexer(paste_content)
+    paste_language = Paste.objects.get(paste_name=paste_name)
+
+    try:
+        lexer = guess_lexer(paste_content)
+    except ClassNotFound:
+        lexer = get_lexer_by_name(paste_language.language.name)
+
     formatter = get_formatter_by_name('html')
 
     return highlight(paste_content, lexer, formatter)
